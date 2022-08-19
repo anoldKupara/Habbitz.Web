@@ -19,6 +19,5 @@ namespace Habbitz_Web.Data
         public DbSet<Sale> Sales { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Vaccine> Vaccines { get; set; }
-
     }
 }
