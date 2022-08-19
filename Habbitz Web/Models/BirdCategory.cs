@@ -6,13 +6,13 @@ namespace Habbitz_Web.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+              [Required]
         public string Name { get; set; }
-        [Required]
+              [Required]
         public string Description { get; set; }
-        [Required]
+              [Required]
         public string Purpose { get; set; }
-        [Required]
+              [Required]
         public string Breed { get; set; }
     }
 }

@@ -6,22 +6,22 @@ namespace Habbitz_Web.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+              [Required]
         public string Name { get; set; }
-        [Required]
+              [Required]
         public string Description { get; set; }
-        [Required]
+              [Required]
         public string Purpose { get; set; }
-        [Required]
+              [Required]
         public string Alternative { get; set; }
-        [Required]
+              [Required]
         public DateTime ExpiryDate { get; set; }
-
         public DateTime PurchaseDate { get; set; } = DateTime.Now;
+               [Required]
         public int Quantity { get; set; }
-        [Required]
+              [Required]
         public string Amount { get; set; }
-        [Required]
+              [Required]
         public string Currency { get; set; }
     }
 }

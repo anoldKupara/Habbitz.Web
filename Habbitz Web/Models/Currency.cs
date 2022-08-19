@@ -6,11 +6,11 @@ namespace Habbitz_Web.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+              [Required]
         public string Name { get; set; }
-        [Required]
+              [Required]
         public string CurrencyCode { get; set; }
-        [Required]
+              [Required]
         public int Rate { get; set; }
     }
 }

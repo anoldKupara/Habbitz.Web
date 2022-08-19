@@ -6,19 +6,19 @@ namespace Habbitz_Web.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+              [Required]
         public string Name { get; set; }
-        [Required]
+              [Required]
         public string Description { get; set; }
-        [Required]
+              [Required]
         public string Purpose { get; set; }
-        [Required]
+              [Required]
         public string Supplier { get; set; }
-        [Required]
+              [Required]
         public int Quantity { get; set; }
-        [Required]
+              [Required]
         public float Amount { get; set; }
-        [Required]
+              [Required]
         public string Currency { get; set; }
     }
 }

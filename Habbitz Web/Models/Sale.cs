@@ -6,13 +6,13 @@ namespace Habbitz_Web.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+              [Required]
         public string ItemPurchased { get; set; }
-        [Required]
+              [Required]
         public int Quantity { get; set; }
-        [Required]
+              [Required]
         public float Price { get; set; }
-        [Required]
+              [Required]
         public string PaymentMethod { get; set; }
         public DateTime DateOfPurchase { get; set; } = DateTime.Now;
     }
