@@ -29,10 +29,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Inventory inventory)
         {
-            if (inventory.ItemName == null)
-            {
-                ModelState.AddModelError("name", "The ItemName cannot be null");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.Inventories.Add(inventory);
@@ -63,10 +59,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Inventory inventory)
         {
-            if (inventory.ItemName == null)
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot be null.");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.Inventories.Update(inventory);
@@ -96,14 +88,14 @@ namespace Habbitz_Web.Controllers
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteCategory(int? id)
+        public IActionResult DeleteInventory(int? id)
         {
-            var inventory = _dbContext.Inventories.Find(id);
-            if (inventory == null)
+            var inventoryFromDb = _dbContext.Inventories.Find(id);
+            if (inventoryFromDb == null)
             {
                 return NotFound();
             }
-            _dbContext.Inventories.Remove(inventory);
+            _dbContext.Inventories.Remove(inventoryFromDb);
             _dbContext.SaveChanges();
             TempData["success"] = "Inventory deleted successfully";
             return RedirectToAction("Index");

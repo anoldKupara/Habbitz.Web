@@ -29,10 +29,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(PaymentMethod paymentMethod)
         {
-            if (paymentMethod.Name == null)
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot be null");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.PaymentMethods.Add(paymentMethod);
@@ -63,10 +59,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(PaymentMethod paymentMethod)
         {
-            if (paymentMethod.Name == null)
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot be null");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.PaymentMethods.Update(paymentMethod);
@@ -96,14 +88,14 @@ namespace Habbitz_Web.Controllers
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteCategory(int? id)
+        public IActionResult DeletePaymentMethod(int? id)
         {
-            var paymentMethod = _dbContext.PaymentMethods.Find(id);
-            if (paymentMethod == null)
+            var paymentMethodFromDb = _dbContext.PaymentMethods.Find(id);
+            if (paymentMethodFromDb == null)
             {
                 return NotFound();
             }
-            _dbContext.PaymentMethods.Remove(paymentMethod);
+            _dbContext.PaymentMethods.Remove(paymentMethodFromDb);
             _dbContext.SaveChanges();
             TempData["success"] = "PaymentMethod deleted successfully";
             return RedirectToAction("Index");

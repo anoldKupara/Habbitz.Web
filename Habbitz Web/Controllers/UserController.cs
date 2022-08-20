@@ -29,10 +29,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(User user)
         {
-            if (user.LastName == user.FirstName.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.Users.Add(user);
@@ -63,10 +59,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(User user)
         {
-            if (user.FirstName == user.Location.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.Users.Update(user);
@@ -96,14 +88,14 @@ namespace Habbitz_Web.Controllers
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteCategory(int? id)
+        public IActionResult DeleteUser(int? id)
         {
-            var user = _dbContext.Users.Find(id);
-            if (user == null)
+            var userFromDb = _dbContext.Users.Find(id);
+            if (userFromDb == null)
             {
                 return NotFound();
             }
-            _dbContext.Users.Remove(user);
+            _dbContext.Users.Remove(userFromDb);
             _dbContext.SaveChanges();
             TempData["success"] = "User deleted successfully";
             return RedirectToAction("Index");

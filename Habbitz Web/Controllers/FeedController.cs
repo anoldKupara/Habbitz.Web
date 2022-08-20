@@ -90,12 +90,12 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteFeed(int? id)
         {
-            var feed = _dbContext.Feeds.Find(id);
-            if (feed == null)
+            var feedFromDb = _dbContext.Feeds.Find(id);
+            if (feedFromDb == null)
             {
                 return NotFound();
             }
-            _dbContext.Feeds.Remove(feed);
+            _dbContext.Feeds.Remove(feedFromDb);
             _dbContext.SaveChanges();
             TempData["success"] = "Feed deleted successfully";
             return RedirectToAction("Index");

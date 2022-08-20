@@ -25,20 +25,16 @@ namespace Habbitz_Web.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Vaccine vaccine)
+        public IActionResult Create(BirdCategory birdCategory)
         {
-            if (vaccine.Name == vaccine.Description.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
-                _dbContext.Vaccines.Add(vaccine);
+                _dbContext.BirdCategories.Add(birdCategory);
                 _dbContext.SaveChanges();
-                TempData["success"] = "Vaccine created successfully";
+                TempData["success"] = "BirdCategory created successfully";
                 return RedirectToAction("Index");
             }
-            return View(vaccine);
+            return View(birdCategory);
         }
 
 
@@ -49,31 +45,27 @@ namespace Habbitz_Web.Controllers
             {
                 return NotFound();
             }
-            var vaccineFromDb = _dbContext.Vaccines.Find(id);
-            if (vaccineFromDb == null)
+            var birdCategoryFromDb = _dbContext.BirdCategories.Find(id);
+            if (birdCategoryFromDb == null)
             {
                 return NotFound();
             }
-            return View(vaccineFromDb);
+            return View(birdCategoryFromDb);
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Vaccine vaccine)
+        public IActionResult Edit(BirdCategory birdCategory)
         {
-            if (vaccine.Name == vaccine.Description.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
-                _dbContext.Vaccines.Update(vaccine);
+                _dbContext.BirdCategories.Update(birdCategory);
                 _dbContext.SaveChanges();
-                TempData["success"] = "Vaccine updated successfully";
+                TempData["success"] = "BirdCategory updated successfully";
                 return RedirectToAction("Index");
             }
-            return View(vaccine);
+            return View(birdCategory);
         }
 
         //GET
@@ -83,28 +75,28 @@ namespace Habbitz_Web.Controllers
             {
                 return NotFound();
             }
-            var vaccineFromDb = _dbContext.Vaccines.Find(id);
+            var birdCategoryFromDb = _dbContext.BirdCategories.Find(id);
 
-            if (vaccineFromDb == null)
+            if (birdCategoryFromDb == null)
             {
                 return NotFound();
             }
-            return View(vaccineFromDb);
+            return View(birdCategoryFromDb);
         }
 
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteCategory(int? id)
+        public IActionResult DeleteBirdCategory(int? id)
         {
-            var vaccine = _dbContext.Vaccines.Find(id);
-            if (vaccine == null)
+            var birdCategoryFromDb = _dbContext.BirdCategories.Find(id);
+            if (birdCategoryFromDb == null)
             {
                 return NotFound();
             }
-            _dbContext.Vaccines.Remove(vaccine);
+            _dbContext.BirdCategories.Remove(birdCategoryFromDb);
             _dbContext.SaveChanges();
-            TempData["success"] = "Vaccine deleted successfully";
+            TempData["success"] = "BirdCategory deleted successfully";
             return RedirectToAction("Index");
         }
     }

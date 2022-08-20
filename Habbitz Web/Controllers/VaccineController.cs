@@ -29,10 +29,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Vaccine vaccine)
         {
-            if (vaccine.Name == vaccine.Description.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.Vaccines.Add(vaccine);
@@ -64,10 +60,6 @@ namespace Habbitz_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Vaccine vaccine)
         {
-            if (vaccine.Name == vaccine.Description.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
                 _dbContext.Vaccines.Update(vaccine);
@@ -97,14 +89,14 @@ namespace Habbitz_Web.Controllers
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteCategory(int? id)
+        public IActionResult DeleteVaccine(int? id)
         {
-            var vaccine = _dbContext.Vaccines.Find(id);
-            if (vaccine == null)
+            var vaccineFromDb = _dbContext.Vaccines.Find(id);
+            if (vaccineFromDb == null)
             {
                 return NotFound();
             }
-            _dbContext.Vaccines.Remove(vaccine);
+            _dbContext.Vaccines.Remove(vaccineFromDb);
             _dbContext.SaveChanges();
             TempData["success"] = "Vaccine deleted successfully";
             return RedirectToAction("Index");

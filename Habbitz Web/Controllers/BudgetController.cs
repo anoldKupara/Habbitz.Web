@@ -25,20 +25,16 @@ namespace Habbitz_Web.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Vaccine vaccine)
+        public IActionResult Create(Budget budget)
         {
-            if (vaccine.Name == vaccine.Description.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
-                _dbContext.Vaccines.Add(vaccine);
+                _dbContext.Budgets.Add(budget);
                 _dbContext.SaveChanges();
-                TempData["success"] = "Vaccine created successfully";
+                TempData["success"] = "Budget created successfully";
                 return RedirectToAction("Index");
             }
-            return View(vaccine);
+            return View(budget);
         }
 
 
@@ -49,31 +45,27 @@ namespace Habbitz_Web.Controllers
             {
                 return NotFound();
             }
-            var vaccineFromDb = _dbContext.Vaccines.Find(id);
-            if (vaccineFromDb == null)
+            var budgetFromDb = _dbContext.Budgets.Find(id);
+            if (budgetFromDb == null)
             {
                 return NotFound();
             }
-            return View(vaccineFromDb);
+            return View(budgetFromDb);
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Vaccine vaccine)
+        public IActionResult Edit(Budget budget)
         {
-            if (vaccine.Name == vaccine.Description.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot match the Name.");
-            }
             if (ModelState.IsValid)
             {
-                _dbContext.Vaccines.Update(vaccine);
+                _dbContext.Budgets.Update(budget);
                 _dbContext.SaveChanges();
-                TempData["success"] = "Vaccine updated successfully";
+                TempData["success"] = "Budget updated successfully";
                 return RedirectToAction("Index");
             }
-            return View(vaccine);
+            return View(budget);
         }
 
         //GET
@@ -83,28 +75,28 @@ namespace Habbitz_Web.Controllers
             {
                 return NotFound();
             }
-            var vaccineFromDb = _dbContext.Vaccines.Find(id);
+            var budgetFromDb = _dbContext.Budgets.Find(id);
 
-            if (vaccineFromDb == null)
+            if (budgetFromDb == null)
             {
                 return NotFound();
             }
-            return View(vaccineFromDb);
+            return View(budgetFromDb);
         }
 
         //POST
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteCategory(int? id)
+        public IActionResult DeleteBudget(int? id)
         {
-            var vaccine = _dbContext.Vaccines.Find(id);
-            if (vaccine == null)
+            var budgetFromDb = _dbContext.Budgets.Find(id);
+            if (budgetFromDb == null)
             {
                 return NotFound();
             }
-            _dbContext.Vaccines.Remove(vaccine);
+            _dbContext.Budgets.Remove(budgetFromDb);
             _dbContext.SaveChanges();
-            TempData["success"] = "Vaccine deleted successfully";
+            TempData["success"] = "Budget deleted successfully";
             return RedirectToAction("Index");
         }
     }
