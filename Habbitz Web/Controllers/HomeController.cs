@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace Habbitz_Web.Controllers
 {
-    public class HomeController1 : Controller
+    public class HomeController : Controller
     {
-        private readonly ILogger<HomeController1> _logger;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController1(ILogger<HomeController1> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
