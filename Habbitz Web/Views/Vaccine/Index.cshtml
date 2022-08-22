@@ -1,7 +1,87 @@
-﻿
+﻿@model IEnumerable<Vaccine>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Vaccines List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-outline-success mb-2" style="color:#cc1212">  <i class="fa fa-plus fa-2x" aria-hidden="true"></i> @Html.ActionLink("Add Vaccine", "Create")</button>
+        </div>
+    </div>
+    <br />
+    <table class="table table-bordered table-stripped" style="width:100p%">
+        <thead>
+            <tr>
+                <th>
+                    Vaccine Id
+                </th>
+                <th>
+                    Vaccine Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Purpose
+                </th>
+                <th>
+                    Alternative
+                </th>
+                <th>
+                    Expiry Date
+                </th>
+                <th>
+                    Purchase Date
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Currency
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vaccine in Model)
+            {
+                <tr>
+                    @vaccine.Id
+                </tr>
+                <tr>
+                    @vaccine.Name
+                </tr>
+                <tr>
+                    @vaccine.Description
+                </tr>
+                <tr>
+                    @vaccine.Purpose
+                </tr>
+                <tr>
+                    @vaccine.Alternative
+                </tr>
+                <tr>
+                    @vaccine.ExpiryDate
+                </tr>
+                <tr>
+                    @vaccine.PurchaseDate
+                </tr>
+                <tr>
+                    @vaccine.Quantity
+                </tr>
+                <tr>
+                    @vaccine.Amount
+                </tr>
+                <tr>
+                    @vaccine.Currency
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
