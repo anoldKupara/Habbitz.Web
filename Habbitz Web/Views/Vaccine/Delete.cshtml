@@ -1,7 +1,46 @@
-﻿
-@{
-    ViewData["Title"] = "Delete";
-}
+﻿@model Vaccine
 
-<h1>Delete</h1>
-
+<form method="post" asp-action="DeleteVaccine">
+    <div class="border p-3 mt-4">
+        <input asp-for="Id" hidden />
+        <div class="row pb-2">
+            <h2>Delete Vaccine</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">Description</label>
+            <input asp-for="Description" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Purpose">Purpose</label>
+            <input asp-for="Purpose" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Alternative">Alternative</label>
+            <input asp-for="Alternative" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ExpiryDate">Expiry Date</label>
+            <input asp-for="ExpiryDate" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Quantity">Quantity</label>
+            <input asp-for="Quantity" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Amount">Amount</label>
+            <input asp-for="Amount" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Currency">Currency</label>
+            <input asp-for="Currency" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+        <a asp-controller="Vaccine" asp-action="Index" class="btn btn-secondary" style="150px">Back to List</a>
+    </div>
+</form>
