@@ -1,7 +1,77 @@
-﻿
+﻿@model IEnumerable<Inventory>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Inventory List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <button class="btn btn-outline-success mb-2" style="color:#cc1212">  <i class="fa fa-plus fa-2x" aria-hidden="true"></i> @Html.ActionLink("Add Inventory", "Create")</button>
+        </div>
+    </div>
+    <br />
 
+    <table class="table table-bordered table-stripped" style="width:100p%">
+        <thead>
+            <tr>
+                <th>
+                    Inventory Id
+                </th>
+                <th>
+                    Item Name
+                </th>
+                <th>
+                    Purpose
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Currency
+                </th>
+                <th>
+                    Purchase Date
+                </th>
+                <th>
+                    Expiration Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var inventory in Model){
+                <tr>
+                    <td>
+                        @inventory.Id
+                    </td>
+                    <td>
+                        @inventory.ItemName
+                    </td>
+                    <td>
+                        @inventory.Purpose
+                    </td>
+                    <td>
+                        @inventory.Quantity
+                    </td>
+                    <td>
+                        @inventory.Amount
+                    </td>
+                    <td>
+                        @inventory.Currency
+                    </td>
+                    <td>
+                        @inventory.PurchaseDate
+                    </td>
+                    <td>
+                        @inventory.ExpiryDate
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
