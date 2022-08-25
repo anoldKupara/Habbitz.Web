@@ -1,7 +1,38 @@
-﻿
-@{
-    ViewData["Title"] = "Delete";
-}
+﻿@model User
 
-<h1>Delete</h1>
+<form method="post" asp-action="DeleteUser">
+    <div class="border p-3 mt-4">
+        <input asp-for="Id" hidden />
+        <div class="row pb-2">
+            <h2>Delete User</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="FirstName">First Name</label>
+            <input asp-for="FirstName" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="LastName">Last Name</label>
+            <input asp-for="LastName" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="PhoneNumber">Phone Number</label>
+            <input asp-for="PhoneNumber" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Location">Location</label>
+            <input asp-for="Location" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CreatedDate">CreatedDate</label>
+            <input asp-for="CreatedDate" class="form-control" disabled />
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+        <a asp-controller="User" asp-action="Index" class="btn btn-secondary" style="150px">Back to List</a>
+    </div>
+</form>
 
