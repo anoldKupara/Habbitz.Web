@@ -1,7 +1,42 @@
-﻿
-@{
-    ViewData["Title"] = "Delete";
-}
+﻿@model Inventory
 
-<h1>Delete</h1>
+<form method="post" asp-action="DeleteInventory">
+    <div class="border p-3 mt-4">
+        <input asp-for="Id" hidden />
+        <div class="row pb-2">
+            <h2>Delete Inventory</h2>
+            <hr />
+        </div>
 
+        <div class="mb-3">
+            <label asp-for="ItemName">Item Name</label>
+            <input asp-for="ItemName" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Purpose">Purpose</label>
+            <input asp-for="Purpose" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Quantity">Quantity</label>
+            <input asp-for="Quantity" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Amount">Amount</label>
+            <input asp-for="Amount" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Currency">Currency</label>
+            <input asp-for="Currency" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="PurchaseDate">PurchaseDate</label>
+            <input asp-for="PurchaseDate" class="form-control" disabled />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ExpiryDate">ExpiryDate</label>
+            <input asp-for="ExpiryDate" class="form-control" disabled />
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+        <a asp-controller="Inventory" asp-action="Index" class="btn btn-secondary" style="150px">Back to List</a>
+    </div>
+</form>
