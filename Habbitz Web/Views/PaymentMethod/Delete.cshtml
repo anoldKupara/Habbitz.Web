@@ -1,13 +1,10 @@
 ﻿@model PaymentMethod
-@{
-    ViewData["Title"] = "Delete";
-}
 
 <form method="post" asp-action="DeletePaymentMethod">
     <div class="border p-3 mt-4">
         <input asp-for="Id" hidden />
         <div class="row pb-2">
-            <h2>Create Payment Method</h2>
+            <h2>Delete Payment Method</h2>
             <hr />
         </div>
         <div class="mb-3">
