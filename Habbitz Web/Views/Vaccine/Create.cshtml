@@ -6,22 +6,22 @@
             <h2>Create Vaccine</h2>
             <hr />
         </div>
-        <div asp-validation-summary="All"></div>
+        
         <div class="mb-3">
             <label asp-for="Name">Name</label>
-            <input asp-for="Name" class="form-control" />
+            <input asp-for="Name" class="form-control" required />
         </div>
         <div class="mb-3">
             <label asp-for="Description">Description</label>
-            <input asp-for="Description" class="form-control" />
+            <input asp-for="Description" class="form-control" required/>
         </div>
         <div class="mb-3">
             <label asp-for="Purpose">Purpose</label>
-            <input asp-for="Purpose" class="form-control" />
+            <input asp-for="Purpose" class="form-control" required />
         </div>
         <div class="mb-3">
             <label asp-for="Alternative">Alternative</label>
-            <input asp-for="Alternative" class="form-control" />
+            <input asp-for="Alternative" class="form-control" required />
         </div>
         <div class="mb-3">
             <label asp-for="ExpiryDate">Expiry Date</label>
@@ -29,15 +29,15 @@
         </div>
         <div class="mb-3">
             <label asp-for="Quantity">Quantity</label>
-            <input asp-for="Quantity" class="form-control" />
+            <input asp-for="Quantity" class="form-control" required />
         </div>
         <div class="mb-3">
             <label asp-for="Amount">Amount</label>
-            <input asp-for="Amount" class="form-control" />
+            <input asp-for="Amount" class="form-control" required />
         </div>
         <div class="mb-3">
             <label asp-for="Currency">Currency</label>
-            <input asp-for="Currency" class="form-control" />
+            <input asp-for="Currency" class="form-control" required />
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
         <a asp-controller="Vaccine" asp-action="Index" class="btn btn-secondary" style="150px">Back to List</a>
